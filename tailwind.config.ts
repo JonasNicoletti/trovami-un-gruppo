@@ -1,6 +1,9 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  safelist: [
+    {pattern: /(bg|ring)-(red|green)-(300|600|700|800)/}
+  ],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
