@@ -35,7 +35,7 @@ export default async function RootLayout({
   return (
     <html lang="it">
       <body className={inter.className}>
-        <div className="mx-4 flex justify-between px-4 py-6 border border-gray-800 border-t-0 border-x-0 ">
+        <div className="mx-4 flex justify-between px-4 py-6 border border-gray-800 border-t-0 border-x-0">
           <h1 className="text-xl font-bold"><Link href={'/'}>{salutation}</Link></h1>
           {session ?
           <Logout />

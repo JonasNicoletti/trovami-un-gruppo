@@ -24,12 +24,12 @@ export default async function Auth() {
     }
 
     return (
-        <div className="flex flex-col" >
+        <div className="flex flex-col h-screen w-full mx-auto px-4" >
             <form action={onSubmit}>
-                <div className="flex justify-center m-6">
+                <div className="flex flex-col md:flex-row items-center justify-center m-6">
                     <input type="text"
                         name="email"
-                        className="mr-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        className="mb-2 md:mr-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="E-mail"
                         required>
                     </input>
