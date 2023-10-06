@@ -10,6 +10,6 @@ export default function Logout() {
         await supabase.auth.signOut();
         router.refresh();
     }
-    return <h1 onClick={logout}className="text-xl font-bold cursor-pointer">Logout</h1>
+    return <a onClick={logout}className="cursor-pointer">Logout</a>
 
 }

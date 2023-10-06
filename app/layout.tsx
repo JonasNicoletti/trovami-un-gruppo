@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import { cookies } from 'next/headers'
 import Logout from './auth/logout'
+import HeaderSettings from './header-settings'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,24 +22,24 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   const supabase = createServerActionClient<Database>({ cookies });
-  let salutation = 'Home'
+  let salutation;
   const { data: { session } } = await supabase.auth.getSession();
 
   if (session) {
 
     const { data: profile, error } = await supabase.from('profiles').select('*').match({ id: session.user.id });
     if (profile) {
-      salutation = `Ciao ${profile[0].first_name}`
+      salutation = profile[0].first_name
     }
   }
 
   return (
     <html lang="it">
       <body className={inter.className}>
-        <div className="mx-4 flex justify-between px-4 py-6 border border-gray-800 border-t-0 border-x-0">
-          <h1 className="text-xl font-bold"><Link href={'/'}>{salutation}</Link></h1>
+        <div className="mx-4 flex justify-between mt-4 pb-2 border border-gray-800 border-t-0 border-x-0 max-h-16">
+          <h1 className="text-xl font-bold"><Link href={'/'}>TuG</Link></h1>
           {session ?
-          <Logout />
+            <HeaderSettings salutation={salutation}/>
             :
             <h1 className="text-xl font-bold"><Link href={'/auth'}>Login</Link></h1>
           }
