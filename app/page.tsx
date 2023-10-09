@@ -34,7 +34,7 @@ export default async function Home() {
   }
 
   return (
-  <div className="h-screen w-full mx-auto px-4">
+  <div className="flex flex-col h-full w-full px-8">
     <Description />
     <LocationSelector locations={locations} session={session} />
   </div>
